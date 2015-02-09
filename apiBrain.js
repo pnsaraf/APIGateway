@@ -117,7 +117,7 @@ function firetheGetRequest (url,callback,doWeCache,data)
 			'fBs6ZICe5FgCZltoKi0l4V2HO9FM41fHbgyn387qdbVOv',
 			function(e,returnedData,res) {
 				if (e) {
-					callback(e);
+					callback(require('util').inspect(e));
 				} else {
 					if(doWeCache) {
 						cache.updateCache(data,require('util').inspect(returnedData));
@@ -151,7 +151,7 @@ function performAPost(action,data,callback)
 		"",          
       		function (e, data, res){
         		if (e) {
-				callback(e);
+				callback(require('util').inspect(e));
 			} else
         			callback(require('util').inspect(data));
       		}

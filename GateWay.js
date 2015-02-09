@@ -8,7 +8,7 @@ var gateWayServer;
 var whiteListedIPs = [];
 var blackListedIPs = [];
 	
-getTheBaddies();
+getTheBadIPs();
 
 if(cluster.isMaster) {
 	var objToSend = null;
@@ -26,7 +26,7 @@ if(cluster.isMaster) {
 	Passing the corresponding values to the new process from master as the new process would be unaware of these*/
 	cluster.on("exit",function(worked,code,signal){
 		var worker = cluster.fork();
-		getTheBaddies();
+		getTheBadIPs();
 	});
 
 } else {
@@ -127,7 +127,7 @@ function config()
 		}	 
 }
 
-function getTheBaddies()
+function getTheBadIPs()
 {
 	require("fs").readFile("./blacklistedIPs.txt",{encoding:"utf8"},function(error,data) {
 		if(error) throw error;
