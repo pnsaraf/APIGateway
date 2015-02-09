@@ -117,7 +117,7 @@ function config()
 						return obj;
 					}
 				break;
-				case "AnaylticsLog":
+				case "AnalyticsLog":
 					apiModule.accessAnalytics();
 				break;
 				case "dumpCache":
